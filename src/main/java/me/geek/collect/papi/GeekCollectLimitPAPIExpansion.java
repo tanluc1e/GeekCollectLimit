@@ -49,12 +49,15 @@ public class GeekCollectLimitPAPIExpansion extends PlaceholderExpansion {
             return "";
         }
 
-        if (identifier.startsWith("blocks")) {
-            GetBlockCount getBlockCount = new GetBlockCount(plugin);
-            System.out.println("MATCH gcl_blocks");
-            return getBlockCount.process(player, identifier);
-        } else if (identifier.startsWith("blocks_")) {
-            System.out.println("MATCH blocks_");
+        if (identifier.startsWith("count")) {
+            GetBlockCount getBlockCount = new GetBlockCount();
+            String oreType = identifier.toLowerCase().replace("count_", "");
+            return getBlockCount.process(player, oreType);
+        }
+        if (identifier.startsWith("limit")) {
+            GetBlockLimit getBlockLimit = new GetBlockLimit();
+            String oreType = identifier.toLowerCase().replace("limit_", "");
+            return getBlockLimit.process(player, oreType);
         }
 
         String materialName = identifier.toLowerCase();
@@ -62,14 +65,13 @@ public class GeekCollectLimitPAPIExpansion extends PlaceholderExpansion {
 
         Placeholder placeholder = placeholders.get(materialName);
 
+        if (placeholder != null) {
+            return placeholder.process(player, identifier);
+        }
 
-            if (placeholder != null) {
-                return placeholder.process(player, identifier);
-            }
 
-
-        System.out.println("ONPLACE MATERIAL NAME " + materialName);
-        System.out.println("ONPLACE MATERIAL " + material);
+        //System.out.println("ONPLACE MATERIAL NAME " + materialName);
+        //System.out.println("ONPLACE MATERIAL " + material);
         return null;
     }
 }

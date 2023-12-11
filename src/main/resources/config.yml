@@ -16,6 +16,8 @@ daily_Limit:
   world:
     - "world"
   # 权限组 - 每日限制
+  # PAPI %gcl_limit_<blocks>%
+  # ex: %gcl_limit_COAL_ORE% or you can use %gcl_limit_coal_ore%
   perm:
     1: # 优先级
       permission: geek.collect.default
@@ -26,39 +28,39 @@ daily_Limit:
           # 当玩家收集方块时，将通过这个材质名称进行匹配
         - material: COAL_ORE
           # 交互信息中显示的名称
-          displayName: "&f煤矿石"
+          displayName: "&fCoal ore"
           # 限制数量
           amount: 100
         - material: IRON_ORE
-          displayName: "&f铁矿石"
+          displayName: "&fIron ore"
           amount: 80
     2:
       permission: geek.collect.vip
       limit:
         - material: COAL_ORE
-          displayName: "&f煤矿石"
+          displayName: "&fCoal ore"
           amount: 150
         - material: IRON_ORE
-          displayName: "&f铁矿石"
+          displayName: "&fIron ore"
           amount: 150
     3:
       permission: geek.collect.mvp
       limit:
         - material: COAL_ORE
-          displayName: "&f煤矿石"
+          displayName: "&fCoal ore"
           amount: 300
         - material: IRON_ORE
-          displayName: "&f铁矿石"
+          displayName: "&fIron ore"
           amount: 210
   # 默认 - 每日限制
   default:
     - material: COAL_ORE
-      displayName: "&f煤矿石"
+      displayName: "&fCoal ore"
       amount: 50
     - material: IRON_ORE
-      displayName: "&f铁矿石"
+      displayName: "&fIron ore"
       amount: 50
     - material: GOLD_ORE
-      displayName: "&f金矿石"
+      displayName: "&fGold ore"
       amount: 50
 

@@ -41,7 +41,7 @@ public class CommandCore implements TabExecutor {
 
         if (args[0].equals(tab.get(0))) {
             GeekCollectLimit.reload();
-            sender.sendMessage("配置文件已重新加载...");
+            sender.sendMessage("Configuration file has been reloaded...");
             return true;
         } else if (length > 1 && args[0].equals(tab.get(1))) {
             Player player = Bukkit.getPlayerExact(args[1]);
@@ -49,10 +49,10 @@ public class CommandCore implements TabExecutor {
                 PlayerData data = GeekCollectLimit.getPlayerData(player.getUniqueId());
                 if (data != null) {
                     data.resetAll();
-                    sender.sendMessage("已重置玩家 " + player.getName() + " 的使用限制数据");
+                    sender.sendMessage("Reset " + player.getName() + " data successfully");
                 }
             } else {
-                sender.sendMessage("不存在该玩家");
+                sender.sendMessage("This player does not exist");
             }
         } else if (length > 2 && args[0].equals(tab.get(2))) {
             Player player = Bukkit.getPlayerExact(args[1]);
@@ -60,10 +60,10 @@ public class CommandCore implements TabExecutor {
             if (player != null) {
                 PlayerData data = GeekCollectLimit.getPlayerData(player.getUniqueId());
                 if (data != null && data.reset(material)) {
-                    sender.sendMessage("已重置玩家 " + player.getName() + " 的 "+ material.name() +" 的累计限制");
+                    sender.sendMessage("Reset  " + player.getName() + " of "+ material.name() +" sucessfully");
                 }
             } else {
-                sender.sendMessage("不存在该玩家");
+                sender.sendMessage("This player does not exist");
             }
         }
 

@@ -119,7 +119,7 @@ public class GeekCollectLimit extends JavaPlugin {
 
     public static void log(@NotNull String msg) {
         CommandSender sender = Bukkit.getConsoleSender();
-        sender.sendMessage("§8[§3§lGeekCollectLimit§8]" + "§f "+msg.replace("&","§"));
+        sender.sendMessage("§8[§3§lAbyss§8]" + "§f "+msg.replace("&","§"));
     }
 
     public static void reload() {
@@ -128,7 +128,7 @@ public class GeekCollectLimit extends JavaPlugin {
         );
         // load sql
         ConfigurationSection sql = yml.getConfigurationSection("data_storage");
-        if (sql == null) throw new NullPointerException("缺少数据库配置项...");
+        if (sql == null) throw new NullPointerException("Missing database configuration...");
         loadSqlConfig(sql);
 
         // load set
@@ -138,10 +138,10 @@ public class GeekCollectLimit extends JavaPlugin {
         List<String> world = yml.getStringList("daily_Limit.world");
 
         ConfigurationSection a2 = yml.getConfigurationSection("daily_Limit");
-        if (a2 == null) throw new NullPointerException("缺少每日限制配置项...");
+        if (a2 == null) throw new NullPointerException("Missing daily limit configuration...");
 
         ConfigurationSection a3 = a2.getConfigurationSection("perm");
-        if (a3 == null) throw new NullPointerException("缺少每日限制权限组配置项...");
+        if (a3 == null) throw new NullPointerException("Missing daily limit permission group configuration...");
 
         dailyLimitConfig = new DailyLimitConfigImpl(world, loadDefaultGroup(a2), loadPermGroup(a3));
         // load lang
