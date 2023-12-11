@@ -1,0 +1,8 @@
+name: GeekCollectLimit
+version: '${project.version}'
+main: me.geek.collect.GeekCollectLimit
+api-version: 1.13
+commands:
+  GeekCollectLimit:
+    description: 插件主命令
+    aliases: [ gcl ]

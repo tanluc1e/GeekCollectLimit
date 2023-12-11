@@ -1,0 +1,64 @@
+#
+# 数据库设置，选择你需要使用的数据储存方式，sqlite,mysql
+# 默认: sqlite
+data_storage:
+  use_type: sqlite
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: 'testsql'
+    username: 'root'
+    password: ''
+    params: '?autoReconnect=true&useSSL=false'
+
+daily_Limit:
+  # 启用的世界
+  world:
+    - "world"
+  # 权限组 - 每日限制
+  perm:
+    1: # 优先级
+      permission: geek.collect.default
+      # 要限制的方块列表
+      # 如果 这里没写的材料，并且默认配置也没写，表示不进行限制
+      limit:
+          # 要限制的材料名称 -> 原版物品材质，不同版本可能不同
+          # 当玩家收集方块时，将通过这个材质名称进行匹配
+        - material: COAL_ORE
+          # 交互信息中显示的名称
+          displayName: "&f煤矿石"
+          # 限制数量
+          amount: 100
+        - material: IRON_ORE
+          displayName: "&f铁矿石"
+          amount: 80
+    2:
+      permission: geek.collect.vip
+      limit:
+        - material: COAL_ORE
+          displayName: "&f煤矿石"
+          amount: 150
+        - material: IRON_ORE
+          displayName: "&f铁矿石"
+          amount: 150
+    3:
+      permission: geek.collect.mvp
+      limit:
+        - material: COAL_ORE
+          displayName: "&f煤矿石"
+          amount: 300
+        - material: IRON_ORE
+          displayName: "&f铁矿石"
+          amount: 210
+  # 默认 - 每日限制
+  default:
+    - material: COAL_ORE
+      displayName: "&f煤矿石"
+      amount: 50
+    - material: IRON_ORE
+      displayName: "&f铁矿石"
+      amount: 50
+    - material: GOLD_ORE
+      displayName: "&f金矿石"
+      amount: 50
+
